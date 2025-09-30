@@ -6,7 +6,7 @@ services:
       - mynetwork
     volumes:
       - ./public_html/db:/var/www/html/db_copy
-      - dbdata:/var/www/html/db
+      - ./public_html/db:/var/www/html/db
     depends_on:
       - frontend
       - sqlite
@@ -20,8 +20,6 @@ services:
     image: ${DOCKER_USERNAME}/zotsport-sqlite:latest
     networks:
       - mynetwork
-    volumes:
-      - dbdata:/dbdata
   proxy:
     image: ${DOCKER_USERNAME}/zotsport-proxy:latest
     ports:
@@ -32,8 +30,6 @@ services:
     depends_on:
       - backend
       - frontend
-volumes:
-  dbdata:
 networks:
   mynetwork:
     driver: bridge
