@@ -1,0 +1,297 @@
+	p{
+		font-size: 20px;
+		font-family: cursive;
+		color: black;
+		font-weight: 400;
+	}
+	body{
+		font-size: 20px;
+		font-family: Times New Roman;
+		color: black;
+		font-weight: 400;
+		background-attachment: fixed;
+		background-image: url("../images/fon_shop1.png");
+		background-size: cover;
+	}
+	
+	.text{
+		box-sizing: border-box;
+		border-top: 2px dotted;
+		padding-left: 3%;
+		padding-top: 2%;
+		padding-bottom: 2%;
+		padding-right: 3%;
+		background: LightSteelBlue;
+		background-size: 100% 340px;
+		margin-left: 10%;
+		margin-right: 10%;
+		margin-top: 1px;
+		text-align: justify;
+		background-image: linear-gradient(to right, azure, lightsteelblue);
+		font-family: cursive;
+	}
+	
+	
+	#silka2{
+		margin: 0;
+		padding: 0;
+	}
+	#top{
+		height: 50px;
+		list-style: none;
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+	#top > ul > li{
+		float: left;
+		height: 50px;
+		width: 24%;
+		position: relative;
+		list-style: none;
+		height: auto;
+		background: Turquoise;
+		text-decoration: none;
+		display: block;
+		border: 1px solid;
+		border-radius: 30px;
+		font-size: 14px;
+		font-family: Arial;
+		text-align: center;
+		line-height: 50px;
+		transition: 0.5s ease-in-out;
+	}
+	#top > ul > li > ul > li{
+		list-style: none;
+		height: 35px;
+		padding-top: 5px;
+		padding-bottom: 20px;
+		text-align: center;
+		margin-left: 0px;
+		line-height: 50px;
+	}
+	#top > ul{
+		background: Turquoise;
+		text-decoration: none;
+		display: block;
+		font-family: Arial;
+		text-align: center;
+		list-style: none;
+	}
+	#top li .vipad{
+		display: none;
+		position: absolute;
+		top: 100%;
+		border: 1px solid;
+		border-radius: 30px;
+	}
+	#top  li:hover .vipad{
+		display: block;
+	}
+	.vipad{
+		background: PaleTurquoise;
+		width: 100%;
+		padding-top: 0;
+		height: 185px;
+		padding-left: 0;
+		z-index: 2;
+	}
+	#top li a{
+		text-decoration: none;
+		text-align: center;
+		color: MediumBlue;
+	}
+	.vipad li {
+		border: 1px solid;
+		border-radius: 30px;
+		margin-left: 0px;
+		transition: 0.5s ease-in-out;
+	}
+	#top li:hover{
+		background-color: DarkTurquoise;
+	}
+	.reclama{
+		max-width: 533px;
+		width: 100%;
+		margin: 20px auto;
+		position: relative;
+		z-index: 1;
+	}
+	.reclama img{
+		width: 100%;
+		box-shadow: 0 4px 12px;
+		z-index: 1;
+	}
+	.reclama .f1{ /*В данных частях описаны изменения и чередование рекламных изображений*/
+		position: relative;
+		animation: rotateY1 10s linear infinite;
+		backface-visibility: hidden;
+	}
+	.reclama .f2 {
+		position: absolute;
+		top: 0;
+		animation: rotateY2 10s linear infinite;
+		backface-visibility: hidden;
+	}
+	@keyframes rotateY1 {
+		0% {
+			transform: rotateY(-180deg);
+		}
+		40% {
+			transform: rotateY(-180deg);
+		}
+		50% {
+			transform: rotateY(0);
+		}
+		90% {
+			transform: rotateY(0);
+		}
+		100% {
+			transform: rotateY(180deg);
+		}
+	}
+	@keyframes rotateY2{
+		0% {
+			transform: rotateY(0);
+		}
+		40% {
+			transform: rotateY(0);
+		}
+		50% {
+			transform: rotateY(180deg);
+		}
+		90% {
+			transform: rotateY(180deg);
+		}
+		100% {
+			transform: rotateY(360deg);
+		}
+	}
+	.text1{
+		box-sizing: border-box;
+		border-top: 2px dotted;
+		padding-left: 3%;
+		padding-top: 2%;
+		padding-bottom: 2%;
+		padding-right: 3%;
+		background: LightSteelBlue;
+		background-size: 100% 340px;
+		margin-left: 10%;
+		margin-right: 10%;
+		text-align: justify;
+		background-image: linear-gradient(to right, azure, lightsteelblue);
+		font-family: cursive;
+	}
+	.tovar_fil{
+		display: inline-block;
+		padding: 20px;
+		margin: 10px 5% 10px 5%;
+		border: 3px dotted DarkSlateGrey;
+		cursor: pointer;
+		height: 600px;
+		width: 90%;
+		text-align: center;
+		background-color: LightSteelBlue;
+	}
+	.old{
+		text-decoration: line-through;
+	}
+	.sale{
+		color: red;
+		font-size: 24px;
+	}
+input[type="radio"] {
+  position: absolute;
+  display: none;
+}
+	.filters {
+		text-align: center;
+		margin-bottom: 40px;
+	}
+	.filters * {
+		display: inline-block;
+	}
+	.filters label {
+		padding-left: 10px;
+		padding-right: 10px;
+		border-radius: 20px;
+		cursor: pointer;
+		transition: all 0.1s;
+		font-size:30px;
+	}
+	.filters label:hover {
+		background: PaleTurquoise;
+	}
+[value="Все"]:checked ~ .pri [data-category] {
+	display: block;
+}
+[value="Adidas"]:checked ~.pri .tovar1:not([data-category~="Adidas"]),
+[value="Nike"]:checked ~.pri .tovar1:not([data-category~="Nike"]) {
+	display: none;
+}
+	.pri {
+		display: grid;
+		margin-right: 5%;
+		grid-gap: 0;
+		grid-template-columns: repeat(2, auto);
+	}
+	.pri .tovar1{
+		list-style: none;
+		display: inline-block;
+	}
+	#tovar_f{
+		display: inline-block;
+		width: 40%;
+	}
+	#tovar_price{
+		display: inline-block;
+		width: 50%;
+		vertical-align: top;
+		margin-left: 6%;
+		border: 2px ridge;
+	}
+	#tovar_price p{
+		font-size: 35px;
+		text-align: center;
+	}
+	.knopka{
+		width: 200px;
+		height: 40px;
+		font-size: 18px;
+		background-color: MintCream;
+		color: black;
+		cursor: pointer;
+		transition-duration: 0.4s;
+	}
+	.knopka:hover{
+		background-color: LightSeaGreen;
+	}
+	.niz{
+		background: Turquoise;
+		font-family: arial;
+		padding-left: 5%;
+	}
+	#niz1{
+		padding-right: 10%;
+		font-family: arial;
+		font-size: 14px;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	#niz1:visited{
+		padding-right: 10%;
+		font-family: arial;
+		font-size: 14px;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	
+
+
+	
+		
+	
+		
+	
+		
+		
+		

@@ -1,0 +1,199 @@
+p{
+		font-size: 20px;
+		font-family: cursive;
+		color: black;
+		font-weight: 400;
+	}
+	body{
+		font-size: 20px;
+		font-family: Times New Roman;
+		color: black;
+		font-weight: 400;
+		background-attachment: fixed;
+	}
+	.niz{
+		background: Turquoise;
+		font-family: arial;
+		padding-left: 5%
+	}
+	.text{
+		box-sizing: border-box;
+		padding-left: 3%;
+		padding-top: 2%;
+		padding-bottom: 2%;
+		padding-right: 3%;
+		background: LightSteelBlue;
+		background-size: 100% 340px;
+		margin-left: 10%;
+		margin-right: 10%;
+		text-align: justify;
+		background-image: linear-gradient(to right, azure, lightsteelblue);
+		font-family: cursive;
+		margin-top: 3px;
+	}
+	.glavnoe{
+		margin-left: 7%;
+		margin-right: 7%;
+		text-align: center;
+		font-family: cursive;
+	}
+	.menu{
+		margin-left: 10%;
+		margin-right: 10%;
+		width: 80%;
+		align: center;
+		background: Turquoise;
+		background-size: 80% 30px;
+	}
+	#silka1{
+		font-family: Arial;
+		color: MediumBlue;
+		text-decoration: none;
+		padding: 5px;
+	}
+	#silka1:hover{
+		color: MidnightBlue;
+		font-size: 22px;
+		font-style: italic;
+		text-shadow: 1px 1px Silver;
+	}
+	#niz1{
+		padding-right: 10%;
+		font-family: arial;
+		text-decoration: none;
+	}
+	#niz1:visited{
+		padding-right: 10%;
+		font-family: arial;
+		text-decoration: none;
+	}
+	
+	#silka2{
+		margin: 0;
+		padding: 0;
+	}
+	#top{
+		height: 50px;
+		list-style: none;
+		margin-left: 10%;
+		margin-right: 10%;
+		align: center;
+	}
+	#top > ul > li{
+		float: left;
+		width: 24%;
+		position: relative;
+		list-style: none;
+		height: 50px;
+		background: Turquoise;
+		text-decoration: none;
+		display: block;
+		border: 1px solid;
+		font-size: 20px;
+		font-family: Arial;
+		text-align: center;
+		line-height: 50px;
+		transition: 0.5s ease-in-out;
+	}
+	#top > ul > li > ul > li{
+		list-style: none;
+		height: 35px;
+		padding-top: 5px;
+		padding-bottom: 20px;
+		text-align: center;
+		margin-left: 0px;
+		line-height: 50px;
+		font-size: 20px;
+		
+	}
+	#top > ul{
+		background: Turquoise;
+		text-decoration: none;
+		display: block;
+		border: 1px solid;
+		font-family: Arial;
+		text-align: center;
+		list-style: none;
+	}
+	#top li .vipad{
+		display: none;
+		position: absolute;
+		top: 100%;
+		border: 1px solid;
+	}
+	#top  li:hover .vipad{
+		display: block;
+	}
+	.vipad{
+		background: PaleTurquoise;
+		width: 100%;
+		padding-top: 0;
+		height: 185px;
+		padding-left: 0;
+		z-index: 2;
+	}
+	#top li a{
+		text-decoration: none;
+		text-align: center;
+		color: MediumBlue;
+	}
+	.vipad li {
+		border: 1px solid;
+		margin-left: 0px;
+		transition: 0.5s ease-in-out;
+	}
+	#top li:hover{
+		background-color: DarkTurquoise;
+	}
+	.text1{
+		box-sizing: border-box;
+		padding-left: 3%;
+		padding-top: 2%;
+		padding-bottom: 2%;
+		padding-right: 3%;
+		background: LightSteelBlue;
+		background-size: 100% 340px;
+		margin-left: 10%;
+		margin-right: 10%;
+		text-align: justify;
+		background-image: linear-gradient(to right, azure, lightsteelblue);
+		font-family: cursive;
+		margin-top: 3px;
+	}
+	#cart{
+		width: 95%;
+	}
+	#cort{
+		border: 1px solid;
+	}
+	#cort th{
+		border: 1px solid;
+		padding: 5px;
+		text-align: center;
+	}
+	#tovar_f{
+		display: inline-block;
+		width: 40%;
+	}
+	#tovar_price{
+		display: inline-block;
+		width: 50%;
+		vertical-align: top;
+		margin-left: 6%;
+		border: 2px ridge;
+	}
+	#tovar_price p{
+		font-size: 35px;
+		text-align: center;
+	}
+	.zakaz{
+		width: 95%;
+	}
+	fieldset{
+		background-color: LightBlue;
+	}
+	#btn{
+		height: 70px;
+		
+		background-color: DodgerBlue;
+		font-size: 22px;

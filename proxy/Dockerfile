@@ -1,0 +1,5 @@
+FROM nginx:alpine
+COPY proxy/nginx.conf /etc/nginx/nginx.conf
+COPY proxy/vhost.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
