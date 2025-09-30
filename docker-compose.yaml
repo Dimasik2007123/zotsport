@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   backend:
-    image: ${DOCKER_USERNAME}/zotsport-backend:latest
+    image: zdima4444/zotsport-backend:latest
     build:
       context: .
       dockerfile: docker-backend/Dockerfile
@@ -21,7 +21,7 @@ services:
     environment:
       - SMTP_PASSWORD=jzaJsWZ26ZF5M8Q3HdYK
   frontend:
-    image: ${DOCKER_USERNAME}/zotsport-frontend:latest
+    image: zdima4444/zotsport-frontend:latest
     build:
       context: .
       dockerfile: frontend/Dockerfile
@@ -32,7 +32,7 @@ services:
     networks:
       - mynetwork
   sqlite:
-    image: ${DOCKER_USERNAME}/zotsport-sqlite:latest
+    image: zdima4444/zotsport-sqlite:latest
     build:
       context: .
       dockerfile: docker-sqlite/Dockerfile
@@ -45,7 +45,7 @@ services:
     volumes:
       - dbdata:/dbdata
   proxy:
-    image: ${DOCKER_USERNAME}/zotsport-proxy:latest
+    image: zdima4444/zotsport-proxy:latest
     build:
       context: .
       dockerfile: proxy/Dockerfile
