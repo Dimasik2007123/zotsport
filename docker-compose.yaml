@@ -22,6 +22,12 @@ services:
       - mynetwork
     volumes:
       - dbdata:/dbdata
+    command: >
+      sh -c "sqlite3 /dbdata/catalog.db 'CREATE TABLE IF NOT EXISTS catalog (id INTEGER PRIMARY KEY, name TEXT, category TEXT, old_price INTEGER, price REAL, sale INTEGER, brand TEXT, image TEXT, available INTEGER);' &&
+             sqlite3 /dbdata/admins.db 'CREATE TABLE IF NOT EXISTS admins (id INTEGER PRIMARY KEY, login TEXT, password TEXT);' &&
+             chmod -R 664 /dbdata/*.db &&
+             chown -R 1000:1000 /dbdata &&
+             tail -f /dev/null"
   proxy:
     image: ${DOCKER_USERNAME}/zotsport-proxy:latest
     ports:
