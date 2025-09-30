@@ -14,7 +14,6 @@ services:
     volumes:
       - ./public_html/backend:/var/www/html/backend
       - ./public_html/db:/var/www/html/db_copy
-      - ./public_html/db:/var/www/html/db
     depends_on:
       - frontend
       - sqlite
