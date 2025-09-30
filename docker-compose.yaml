@@ -1,14 +1,7 @@
 version: '3.8'
 services:
   backend:
-    image: localhost:5000/backend:latest
-    build:
-      context: .
-      dockerfile: docker-backend/Dockerfile
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
+    image: ${DOCKER_USERNAME}/zotsport-backend:latest
     networks:
       - mynetwork
     volumes:
@@ -20,43 +13,20 @@ services:
     environment:
       - SMTP_PASSWORD=jzaJsWZ26ZF5M8Q3HdYK
   frontend:
-    image: localhost:5000/frontend:latest
-    build:
-      context: .
-      dockerfile: frontend/Dockerfile
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
+    image: ${DOCKER_USERNAME}/zotsport-frontend:latest
     networks:
       - mynetwork
   sqlite:
-    image: localhost:5000/sqlite:latest
-    build:
-      context: .
-      dockerfile: docker-sqlite/Dockerfile
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
+    image: ${DOCKER_USERNAME}/zotsport-sqlite:latest
     networks:
       - mynetwork
     volumes:
       - dbdata:/dbdata
   proxy:
-    image: localhost:5000/proxy:latest
-    build:
-      context: .
-      dockerfile: proxy/Dockerfile
+    image: ${DOCKER_USERNAME}/zotsport-proxy:latest
     ports:
       - "80:80"
       - "443:443"
-    deploy:
-      replicas: 1
-      placement:
-        constraints: [node.role == manager]
-      restart_policy:
-        condition: on-failure
     networks:
       - mynetwork
     depends_on:
