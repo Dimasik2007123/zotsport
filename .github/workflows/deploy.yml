@@ -52,7 +52,7 @@ jobs:
           push: true
           tags: ${{secrets.DOCKER_USERNAME}}/zotsport-proxy:latest
       - name: run test
-        run:
+        run: |
           docker-compose up -d
           sleep 10
           docker-compose down
