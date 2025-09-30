@@ -53,7 +53,7 @@ jobs:
           tags: ${{secrets.DOCKER_USERNAME}}/zotsport-proxy:latest
       - name: run test
         run:
-          docker compose up -d
+          docker-compose up -d
           sleep 10
-          docker compose down
+          docker-compose down
         
