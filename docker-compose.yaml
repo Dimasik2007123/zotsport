@@ -2,30 +2,55 @@ version: '3.8'
 services:
   backend:
     image: ${DOCKER_USERNAME}/zotsport-backend:latest
+    build:
+      context: .
+      dockerfile: docker-backend/Dockerfile
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
     networks:
       - mynetwork
     volumes:
+      - ./public_html/backend:/var/www/html/backend
       - ./public_html/db:/var/www/html/db_copy
       - ./public_html/db:/var/www/html/db
     depends_on:
       - frontend
-      - sqlite
     environment:
       - SMTP_PASSWORD=jzaJsWZ26ZF5M8Q3HdYK
   frontend:
     image: ${DOCKER_USERNAME}/zotsport-frontend:latest
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
     networks:
       - mynetwork
   proxy:
     image: ${DOCKER_USERNAME}/zotsport-proxy:latest
+    build:
+      context: .
+      dockerfile: proxy/Dockerfile
     ports:
       - "80:80"
       - "443:443"
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+      restart_policy:
+        condition: on-failure
     networks:
       - mynetwork
     depends_on:
       - backend
       - frontend
+volumes:
+  dbdata:
 networks:
   mynetwork:
     driver: bridge
