@@ -6,7 +6,7 @@ services:
       - mynetwork
     volumes:
       - ./public_html/db:/var/www/html/db_copy
-      - dbdata:/var/www/html/db
+      - ./public_html/db:/var/www/html/db
     depends_on:
       - frontend
       - sqlite
@@ -16,18 +16,6 @@ services:
     image: ${DOCKER_USERNAME}/zotsport-frontend:latest
     networks:
       - mynetwork
-  sqlite:
-    image: ${DOCKER_USERNAME}/zotsport-sqlite:latest
-    networks:
-      - mynetwork
-    volumes:
-      - dbdata:/dbdata
-    command: >
-      sh -c "sqlite3 /dbdata/catalog.db 'CREATE TABLE IF NOT EXISTS catalog (id INTEGER PRIMARY KEY, name TEXT, category TEXT, old_price INTEGER, price REAL, sale INTEGER, brand TEXT, image TEXT, available INTEGER);' &&
-             sqlite3 /dbdata/admins.db 'CREATE TABLE IF NOT EXISTS admins (id INTEGER PRIMARY KEY, login TEXT, password TEXT);' &&
-             chmod -R 664 /dbdata/*.db &&
-             chown -R 1000:1000 /dbdata &&
-             tail -f /dev/null"
   proxy:
     image: ${DOCKER_USERNAME}/zotsport-proxy:latest
     ports:
@@ -41,5 +29,3 @@ services:
 networks:
   mynetwork:
     driver: bridge
-volumes:
-  dbdata:

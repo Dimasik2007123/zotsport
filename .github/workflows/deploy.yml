@@ -37,13 +37,6 @@ jobs:
           file: docker-backend/Dockerfile
           push: true
           tags: ${{secrets.DOCKER_USERNAME}}/zotsport-backend:latest
-      - name: Build and push sqlite
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: docker-sqlite/Dockerfile
-          push: true
-          tags: ${{secrets.DOCKER_USERNAME}}/zotsport-sqlite:latest
       - name: Build and push proxy
         uses: docker/build-push-action@v6
         with:
