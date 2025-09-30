@@ -48,9 +48,6 @@ services:
       - mynetwork
     depends_on:
       - backend
-      - frontend
-volumes:
-  dbdata:
 networks:
   mynetwork:
     driver: bridge
