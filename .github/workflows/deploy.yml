@@ -53,6 +53,6 @@ jobs:
           tags: ${{secrets.DOCKER_USERNAME}}/zotsport-proxy:latest
       - name: run test
         run:
-          docker-compose -f docker-compose.yaml up -d
-          docker-compose -f docker-compose.yaml down
+          docker compose -f docker-compose.yaml up -d
+          docker compose -f docker-compose.yaml down
         
