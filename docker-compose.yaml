@@ -64,6 +64,7 @@ services:
       - frontend
 volumes:
   dbdata:
+    driver: local
 networks:
   mynetwork:
     driver: overlay
