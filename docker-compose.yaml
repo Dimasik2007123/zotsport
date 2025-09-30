@@ -12,8 +12,9 @@ services:
     networks:
       - mynetwork
     volumes:
-      - dbdata:/var/www/html/db_copy
-      - dbdata:/var/www/html/db
+      - ./public_html/backend:/var/www/html/backend
+      - ./public_html/db:/var/www/html/db_copy
+      - ./public_html/db:/var/www/html/db
     depends_on:
       - frontend
       - sqlite
