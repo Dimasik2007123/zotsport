@@ -66,4 +66,4 @@ volumes:
   dbdata:
 networks:
   mynetwork:
-    driver: overlay
+    driver: bridge

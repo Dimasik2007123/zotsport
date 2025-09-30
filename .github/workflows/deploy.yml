@@ -46,21 +46,8 @@ jobs:
           file: proxy/Dockerfile
           push: true
           tags: ${{secrets.DOCKER_USERNAME}}/zotsport-proxy:latest
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Deploy to server
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{secrets.SERVER_IP}}
-          username: ${{secrets.SERVER_USER}}
-          key: ${{secrets.SSH_KEY}}
-          script: |
-            docker pull ${{secrets.DOCKER_USERNAME}}/zotsport-frontend:latest
-            docker pull ${{secrets.DOCKER_USERNAME}}/zotsport-backend:latest
-            docker pull ${{secrets.DOCKER_USERNAME}}/zotsport-sqlite:latest
-            docker pull ${{secrets.DOCKER_USERNAME}}/zotsport-proxy:latest
-            docker stack deploy -c docker-compose.yaml myapp
+      - name: run test
+        run:
+          docker-compose -f docker-compose.yaml up -d
+          docker-compose -f docker-compose.yaml down
+        
