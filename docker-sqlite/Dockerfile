@@ -1,7 +1,10 @@
-FROM alpine:latest
+FROM alpine:3.20
+
 RUN apk add --no-cache sqlite
-COPY public_html/db/catalog.db /data/catalog.db
-COPY public_html/db/admins.db /data/admins.db
-RUN chown -R 100:100 /data && chmod -R 664 /data -R /data/catalog.db /data/admins.db
-VOLUME /dbdata
-CMD ["tail", "-f", "/dev/null"]
+RUN mkdir -p /dbdata
+
+COPY init-databases.sh /init-databases.sh
+RUN chmod +x /init-databases.sh
+
+# Выполнение скрипта инициализации при старте
+CMD ["/init-databases.sh"]
