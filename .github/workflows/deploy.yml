@@ -16,7 +16,7 @@ jobs:
       - name: Install docker-compose
         run: |
           sudo apt-get update
-          sudo apt-get unstall -y docker-compose
+          sudo apt-get install -y docker-compose
           docker-compose --version
       - name: Login Docker Hub
         uses: docker/login-action@v3
