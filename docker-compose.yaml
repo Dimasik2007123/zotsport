@@ -2,6 +2,9 @@ version: '3.8'
 services:
   backend:
     image: ${DOCKER_USERNAME}/zotsport-backend:latest
+    build:
+      context: .
+      dockerfile: docker-backend/Dockerfile
     networks:
       - mynetwork
     volumes:
@@ -13,10 +16,16 @@ services:
       - SMTP_PASSWORD=jzaJsWZ26ZF5M8Q3HdYK
   frontend:
     image: ${DOCKER_USERNAME}/zotsport-frontend:latest
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
     networks:
       - mynetwork
   proxy:
     image: ${DOCKER_USERNAME}/zotsport-proxy:latest
+    build:
+      context: .
+      dockerfile: proxy/Dockerfile
     ports:
       - "80:80"
       - "443:443"
