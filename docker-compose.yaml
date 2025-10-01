@@ -36,4 +36,4 @@ services:
       - frontend
 networks:
   mynetwork:
-    driver: overlay
+    driver: bridge
