@@ -66,14 +66,14 @@ jobs:
             fi
           done
           # Check backend HTTP endpoint
-          docker exec zotsport_backend_1 curl -f http://localhost/backend/start.php  {
+          docker exec zotsport_backend_1 curl -f http://localhost/backend/start.php || {
             echo "Error: Backend start.php failed"
             docker-compose logs backend
             docker-compose down --volumes
             exit 1
           }
           # Check proxy HTTP endpoint
-          curl -f http://localhost:80  {
+          curl -f http://localhost:80 || {
             echo "Error: Proxy HTTP endpoint not accessible"
             docker-compose logs proxy
             docker-compose down --volumes
