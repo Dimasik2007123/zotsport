@@ -10,7 +10,6 @@ $stmt->execute([':login' => $login]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ini_set('short_open_tag', 'On');
-header('Refresh: 4; URL=../index.html'); 
 if ($user && ($password == $user['password'])){
 ?>
 <script type="text/javascript">

@@ -147,12 +147,14 @@ p{
 	    display:none;
 	}
 	#niz1{
+		padding-right: 10%;
 		font-size: 14px;
 		font-family: arial;
 		text-decoration: none;
 		white-space: nowrap;
 	}
 	#niz1:visited{
+		padding-right: 10%;
 		font-size: 14px;
 		font-family: arial;
 		text-decoration: none;

@@ -37,6 +37,13 @@ jobs:
           file: docker-backend/Dockerfile
           push: true
           tags: ${{secrets.DOCKER_USERNAME}}/zotsport-backend:latest
+      - name: Build and push sqlite
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker-sqlite/Dockerfile
+          push: true
+          tags: ${{secrets.DOCKER_USERNAME}}/zotsport-sqlite:latest
       - name: Build and push proxy
         uses: docker/build-push-action@v6
         with:
@@ -50,4 +57,28 @@ jobs:
         run: |
           docker-compose up -d
           sleep 10
+          for service in backend frontend proxy; do
+            if [ -z "$(docker ps -q -f name=zotsport_${service}_1)" ]; then
+              echo "Error: ${service} container is not running"
+              docker-compose logs ${service}
+              docker-compose down --volumes
+              exit 1
+            fi
+          done
+          # Check backend HTTP endpoint
+          docker exec zotsport_backend_1 curl -f http://localhost/backend/start.php  {
+            echo "Error: Backend start.php failed"
+            docker-compose logs backend
+            docker-compose down --volumes
+            exit 1
+          }
+          # Check proxy HTTP endpoint
+          curl -f http://localhost:80  {
+            echo "Error: Proxy HTTP endpoint not accessible"
+            docker-compose logs proxy
+            docker-compose down --volumes
+            exit 1
+          }
+          # Clean up
+          docker-compose down --volumes
           docker-compose down

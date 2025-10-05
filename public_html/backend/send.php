@@ -31,7 +31,6 @@ $mail->Body = $mes;
 
 $mail->send();
  
-header('Refresh: 4; URL=index.html'); 
 ?>
 <!DOCTYPE HTML> <!--Новая страница, оповещающая покупателя о заказе-->
 <html>

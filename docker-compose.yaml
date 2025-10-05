@@ -8,10 +8,12 @@ services:
     networks:
       - mynetwork
     volumes:
+      - ./public_html/backend:/var/www/html
       - ./public_html/db:/var/www/html/db_copy
       - ./public_html/db:/var/www/html/db
     depends_on:
-      - frontend
+      sqlite:
+        condition: service_completed_successfully
     environment:
       - SMTP_PASSWORD=jzaJsWZ26ZF5M8Q3HdYK
   frontend:
@@ -19,6 +21,17 @@ services:
     build:
       context: .
       dockerfile: frontend/Dockerfile
+    networks:
+      - mynetwork
+  sqlite:
+    image: ${DOCKER_USERNAME}/zotsport-sqlite:latest
+    build:
+      context: .
+      dockerfile: docker-sqlite/Dockerfile
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
     networks:
       - mynetwork
   proxy:
