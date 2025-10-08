@@ -54,14 +54,10 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build  # Зависимость от job build
+    needs: build  
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Install docker-compose
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y docker-compose
       - name: Run deployment tests
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
