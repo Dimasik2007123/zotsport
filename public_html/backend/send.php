@@ -18,7 +18,7 @@ $mail->isSMTP();
 $mail->Host = 'smtp.mail.ru'; 
 $mail->SMTPAuth = true;
 $mail->Username = 'vanya.sergeev.8787@mail.ru';
-$mail->Password = 'jzaJsWZ26ZF5M8Q3HdYK';
+$mail->Password = getenv('SMTP_PASSWORD');
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 $mail->Port = 587;
 
