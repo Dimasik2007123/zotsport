@@ -79,5 +79,4 @@ jobs:
             docker-compose down --volumes
             exit 1
           }
-          # Clean up
           docker-compose down --volumes
