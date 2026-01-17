@@ -1,5 +1,7 @@
 <?php
-// Здесь проверяется существование переменных
+
+header('Content-Type: application/json; charset=utf-8');
+
 if (isset($_POST['category'])) {$category = $_POST['category'];}
 if (isset($_POST['name'])) {$name = $_POST['name'];}
 if (isset($_POST['old_price'])) {$old_price = $_POST['old_price'];}
@@ -14,10 +16,9 @@ $price = $old_price - $sale*$old_price/100;
 $imageData = file_get_contents($image['tmp_name']);
 $imageBase64 = 'data:' . $image['type'] . ';base64,' . base64_encode($imageData);
 
-header('Refresh: 1; URL=../admin_choice.html'); 
 $db = new PDO('sqlite:/var/www/html/db/catalog.db');
 $stmt = $db->prepare("INSERT INTO catalog (name, category, old_price, price, sale, brand, image, avalible) VALUES (:name, :category, :old_price, :price, :sale, :brand, :image, :avalible)");
-$stmt->execute([
+if ($stmt->execute([
     ':name' => $name,
     ':category' => $category,
     ':old_price' => $old_price,
@@ -26,11 +27,15 @@ $stmt->execute([
     ':brand' => $brand,
     ':image' => $imageBase64,
     ':avalible' => $selec
-]);
-$source = '/var/www/html/db/catalog.db';
-$destination = '/var/www/html/db_copy/catalog.db';
-copy($source, $destination);
+])) {
+    $source = '/var/www/html/db/catalog.db';
+    $destination = '/var/www/html/db_copy/catalog.db';
+    copy($source, $destination);
+    echo json_encode(['success' => true, 'message' => 'Товар добавлен']);
+}
+else {
+    echo json_encode(['success' => false, 'message' => 'Ошибка при добавлении товара']);
+}
+
+exit;
 ?>
-<script type="text/javascript">
- alert("Товар добавлен");
-</script>

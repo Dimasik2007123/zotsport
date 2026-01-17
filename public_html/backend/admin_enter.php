@@ -1,5 +1,7 @@
 <?php
-// Здесь проверяется существование переменных
+
+header('Content-Type: application/json; charset=utf-8');
+
 if (isset($_POST['login'])) {$login = $_POST['login'];}
 if (isset($_POST['password'])) {$password = $_POST['password'];}
 
@@ -9,22 +11,12 @@ $stmt = $db->prepare("SELECT password FROM users WHERE login = :login");
 $stmt->execute([':login' => $login]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-ini_set('short_open_tag', 'On');
 if ($user && ($password == $user['password'])){
-?>
-<script type="text/javascript">
-    var adm = 1;
-    localStorage.setItem('adm', adm);
-	location.replace("../admin_choice.html");
-</script>
-<?php
+    echo json_encode(['success' => true, 'message' => 'Успешный вход']);
+} 
+else {
+    echo json_encode(['success' => false, 'message' => 'Неверный логин или пароль']);
 }
-else{
-?>
-<script type="text/javascript">
-    location.replace("../admin_enter.html");
-	alert("Неверный логин или пароль");
-</script>"
-<?php
-}
+
+exit;
 ?>

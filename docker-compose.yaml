@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   backend:
-    image: ${DOCKER_USERNAME}/zotsport-backend:latest
+    image: ${DOCKER_USERNAME}/zotsport-backend1:latest
     build:
       context: .
       dockerfile: docker-backend/Dockerfile
@@ -20,10 +20,10 @@ services:
     environment:
       - SMTP_PASSWORD=jzaJsWZ26ZF5M8Q3HdYK
   frontend:
-    image: ${DOCKER_USERNAME}/zotsport-frontend:latest
+    image: ${DOCKER_USERNAME}/zotsport-frontend1:latest
     build:
       context: .
-      dockerfile: frontend/Dockerfile
+      dockerfile: frontend-react/Dockerfile
     deploy:
       replicas: 1
       restart_policy:
@@ -31,7 +31,7 @@ services:
     networks:
       - mynetwork
   sqlite:
-    image: ${DOCKER_USERNAME}/zotsport-sqlite:latest
+    image: ${DOCKER_USERNAME}/zotsport-sqlite1:latest
     build:
       context: .
       dockerfile: docker-sqlite/Dockerfile
@@ -43,7 +43,7 @@ services:
     networks:
       - mynetwork
   proxy:
-    image: ${DOCKER_USERNAME}/zotsport-proxy:latest
+    image: ${DOCKER_USERNAME}/zotsport-proxy1:latest
     build:
       context: .
       dockerfile: proxy/Dockerfile
