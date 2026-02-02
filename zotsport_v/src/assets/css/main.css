@@ -425,7 +425,15 @@ fieldset {
   background-color: lightblue;
   font-size: clamp(10px, 0.5vw + 0.5rem, 18px);
   border-radius: 20px;
+  cursor: pointer;
   opacity: 1;
+}
+
+.btn-loading {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background-color: #d3e5f2;
+  color: #555;
 }
 
 .cart_table {

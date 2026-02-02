@@ -34,3 +34,30 @@
 ```
 docker-compose up -d
 ```
+
+## Скриншоты
+
+### Главная страница
+
+![Главная](./screenshots/main.png)
+
+### Корзина
+
+![Корзина](./screenshots/cart.png)
+
+### Форма оформления заказа
+
+![Заказ](./screenshots/cart_form1.png)
+![Заказ](./screenshots/cart_form2.png)
+
+### Карточка товара при добавлении в корзину
+
+![Заказ](./screenshots/product.png)
+
+### Меню
+
+![Заказ](./screenshots/menu.png)
+
+### Список товаров
+
+![Заказ](./screenshots/catalog.png)

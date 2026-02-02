@@ -12,7 +12,7 @@ if (isset($_POST['phone'])) {$phone = $_POST['phone'];}
 if (isset($_POST['email'])) {$email = $_POST['email'];}
 if (isset($_POST['city'])) {$city = $_POST['city'];}
 {$selec = $_POST['connect'];}
-{$spis = $_POST['product-list'];}
+{$spis = $_POST['product_list'];}
 $mes = "Тема: Заказ ЗотСпорт\nИмя: $name\nФамилия: $surname\nТелефон: $phone\nПочта: $email\nАдрес: $city\nСпособ связи: $selec\nСписок товаров: $spis"; //Текст сообщения
 
 $mail = new PHPMailer(True);

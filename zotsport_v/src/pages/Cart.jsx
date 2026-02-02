@@ -4,11 +4,11 @@ import { CartContext } from "../context/CartContext";
 
 function Cart() {
   const { cart, deleteFromCart, clearCart } = useContext(CartContext);
-  const nevidRef = useRef(null);
   const formRef = useRef(null);
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [name, setName] = useState(() => localStorage.getItem("name") || "");
   const [surname, setSurname] = useState(
     () => localStorage.getItem("surname") || "",
@@ -175,20 +175,6 @@ function Cart() {
       });
   }, [cart]);
 
-  useEffect(() => {
-    const text =
-      products
-        .map(
-          (product) =>
-            `Артикул ${product.id}\nНазвание ${product.name}\nЦена ${product.price}\nКоличество ${product.quantity}\n\n`,
-        )
-        .join("") + `Итого ${total} руб.`;
-
-    if (nevidRef.current) {
-      nevidRef.current.value = text;
-    }
-  }, [products, total]);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -196,8 +182,7 @@ function Cart() {
       return;
     }
 
-    clearCart();
-    setIsSubmitted(true);
+    setIsSubmitting(true);
 
     window.localStorage.removeItem("name");
     window.localStorage.removeItem("surname");
@@ -206,11 +191,27 @@ function Cart() {
     window.localStorage.removeItem("mail");
     window.localStorage.removeItem("connect");
 
+    const productText =
+      products
+        .map(
+          (product) =>
+            `Артикул ${product.id}\nНазвание ${product.name}\nЦена ${product.price}\nКоличество ${product.quantity}\n\n`,
+        )
+        .join("") + `Итого ${total} руб.`;
+
     const formData = new FormData(event.target);
+    formData.append("product_list", productText);
+
     await fetch("/backend/send.php", {
       method: "POST",
       body: formData,
     });
+
+    setIsSubmitting(false);
+
+    clearCart();
+    setIsSubmitted(true);
+
     setTimeout(() => navigate("/"), 4000);
   };
 
@@ -407,18 +408,15 @@ function Cart() {
             />
             <span className="form__error" id="email-error"></span>
           </p>
-
-          <div id="nevidimka" name="nevidimka">
-            <textarea
-              class="nevid"
-              name="product-list"
-              ref={nevidRef}
-            ></textarea>
-          </div>
         </fieldset>
         <br />
 
-        <input type="submit" className="btn" value="Оформить заказ!" />
+        <input
+          type="submit"
+          className={`btn ${isSubmitting ? "btn-loading" : ""}`}
+          value={isSubmitting ? "Оформляем..." : "Оформить заказ!"}
+          disabled={isSubmitting}
+        />
       </form>
     </main>
   );
