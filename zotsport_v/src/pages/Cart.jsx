@@ -65,7 +65,8 @@ function Cart() {
       (radio) => radio.checked,
     );
 
-    const hasErrors = hasInvalidInput(inputList) || !isRadioSelected;
+    const hasErrors =
+      hasInvalidInput(inputList) || !isRadioSelected || products.length === 0;
 
     if (hasErrors) {
       buttonElement.style.opacity = 0.5;
@@ -95,7 +96,7 @@ function Cart() {
       }
     });
 
-    if (!isRadioSelected) {
+    if (!isRadioSelected || products.length === 0) {
       isValid = false;
     }
 
@@ -126,13 +127,15 @@ function Cart() {
       inputElement.addEventListener("blur", handleBlur);
     });
 
+    //toggleButtonState(buttonElement);
+
     return () => {
       inputList.forEach((inputElement) => {
         inputElement.removeEventListener("input", () => {});
         inputElement.removeEventListener("blur", () => {});
       });
     };
-  }, [connect]);
+  }, [connect, products]);
 
   const handleConnectChange = (value) => {
     setConnect(value);
