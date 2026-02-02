@@ -52,12 +52,16 @@ docker-compose up -d
 
 ### Карточка товара при добавлении в корзину
 
-![Заказ](./screenshots/product.png)
+![Каточка товара](./screenshots/product.png)
 
 ### Меню
 
-![Заказ](./screenshots/menu.png)
+![Меню](./screenshots/menu.png)
 
 ### Список товаров
 
-![Заказ](./screenshots/catalog.png)
+![Каталог](./screenshots/catalog.png)
+
+### Контакты
+
+![Контакты](./screenshots/contacts.png)
