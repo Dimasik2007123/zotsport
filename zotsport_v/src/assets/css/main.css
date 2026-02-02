@@ -468,9 +468,9 @@ fieldset {
   text-align: right;
 }
 
-#nevidimka {
+/*#nevidimka {
   display: none;
-}
+}*/
 
 .admin_choice {
   display: flex;
