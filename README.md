@@ -65,3 +65,7 @@ docker-compose up -d
 ### Контакты
 
 ![Контакты](./screenshots/contacts.png)
+
+### Письмо с информацией о заказе
+
+![Письмо](./screenshots/mail.png)
