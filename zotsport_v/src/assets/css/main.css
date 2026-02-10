@@ -199,12 +199,23 @@ body {
   width: 100%;
   margin: 20px auto;
   position: relative;
+  background: transparent;
   z-index: 1;
+  transition: transform 1s;
 }
 
 .ad img {
   width: 100%;
-  box-shadow: 0 4px 12px;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.ad:hover {
+  transform: scale(1.03);
 }
 
 #ad_1 {
@@ -218,6 +229,33 @@ body {
   top: 0;
   animation: rotateY2 10s linear infinite;
   backface-visibility: hidden;
+}
+
+.ad::before {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10%;
+  height: 2px;
+  background: rgba(128, 128, 128, 0.4);
+  z-index: 11;
+  border-radius: 1px;
+  animation: progressFill 10s ease-in-out infinite;
+}
+
+.ad::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10%;
+  height: 2px;
+  background: rgba(128, 128, 128, 0.2);
+  z-index: 10;
+  border-radius: 1px;
 }
 
 .loading {

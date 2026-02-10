@@ -1,12 +1,31 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import sale1 from "../assets/images/sale1.png";
 import sale2 from "../assets/images/sale2.png";
 
 function Home() {
+  const calculateAge = () => {
+    const today = new Date();
+    const bornDate = new Date(2022, 11, 25);
+
+    let age = today.getFullYear() - bornDate.getFullYear();
+
+    if (
+      today.getMonth() < bornDate.getMonth() ||
+      (today.getMonth() === bornDate.getMonth() &&
+        today.getDate() < bornDate.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
+  };
+
+  const [age] = useState(calculateAge());
+
   useEffect(() => {
     document.title = "ЗотСпорт. Главная";
-  });
+  }, []);
 
   return (
     <main className="content">
@@ -26,9 +45,9 @@ function Home() {
       <p>
         ЗотСпорт - магазин качественных товаров для тех, кто ведёт активный
         образ жизни. Мы работаем с 2022 года и продолжаем радовать наших
-        покупателей на протяжении 4 лет. Ассортимент нашего магазина включает
-        такие категории товаров: спортивное питание, футбольные мячи, одежда и
-        обувь для занятий футболом.
+        покупателей на протяжении {age} лет. Ассортимент нашего магазина
+        включает такие категории товаров: спортивное питание, футбольные мячи,
+        одежда и обувь для занятий футболом.
       </p>
       <p>
         Все товары прошли необходимую сертификацию и проверены нашими
