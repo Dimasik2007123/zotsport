@@ -1,0 +1,13 @@
+[13:06:15.341] [INFO] [36mInitializing Storybook[39m
+[13:06:15.635] [DEBUG] Getting package.json info for C:\Users\zdima\Documents\frontend\zotsport_react\package.json...
+[13:06:15.635] [DEBUG] Getting CLI versions from NPM for storybook...
+[13:06:15.635] [DEBUG] Executing command: npm info storybook version
+[13:06:16.579] [INFO] Adding Storybook version 10.2.9 to your project
+[13:06:16.580] [ERROR] Unable to initialize Storybook in this directory.
+
+Storybook couldn't detect a supported framework or configuration for your project. Make sure you're inside a framework project (e.g., React, Vue, Svelte, Angular, Next.js) and that its dependencies are installed.
+
+Tips:
+- Run init in an empty directory or create a new framework app first.
+- If this directory contains unrelated files, try a new directory for Storybook.
+[13:06:16.586] [INFO] Storybook collects completely anonymous usage telemetry. We use it to shape Storybook's roadmap and prioritize features. You can learn more, including how to opt out, at https://storybook.js.org/telemetry

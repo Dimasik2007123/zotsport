@@ -269,9 +269,11 @@ function Cart() {
           </thead>
 
           {products.length === 0 ? (
-            <tr>
-              <td colSpan="6">Корзина пуста</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td colSpan="6">Корзина пуста</td>
+              </tr>
+            </tbody>
           ) : (
             <tbody>
               {products.map((product) => (

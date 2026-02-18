@@ -40,13 +40,13 @@ function AdminAdd() {
       {message && <p>{message}</p>}
       <form
         className="order-form"
-        enctype="multipart/form-data"
+        encType="multipart/form-data"
         onSubmit={handleSubmit}
       >
         <fieldset>
           <legend>Данные товара</legend>
           <p>
-            <label htmlFor="category">Категория товара</label>
+            <label htmlFor="category">Категория товара </label>
             <select name="category" id="cat" required>
               <option value="Спортивное питание">Спортивное питание</option>
               <option value="Мячи">Мячи</option>
