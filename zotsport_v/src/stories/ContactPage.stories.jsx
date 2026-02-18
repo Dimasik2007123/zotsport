@@ -1,4 +1,4 @@
-import { MemoryRouter, Routes, Route } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { CartProvider } from "../context/CartContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -19,9 +19,6 @@ export default {
   component: AppWrapper,
   parameters: {
     layout: "fullscreen",
-    backgrounds: {
-      default: "light",
-    },
   },
   decorators: [
     // eslint-disable-next-line no-unused-vars

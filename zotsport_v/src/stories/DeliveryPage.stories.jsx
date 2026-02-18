@@ -19,9 +19,6 @@ export default {
   component: AppWrapper,
   parameters: {
     layout: "fullscreen",
-    backgrounds: {
-      default: "light",
-    },
   },
   decorators: [
     // eslint-disable-next-line no-unused-vars

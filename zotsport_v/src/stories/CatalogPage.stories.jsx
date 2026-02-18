@@ -77,13 +77,42 @@ export const BootsWithFilters = {
       };
 
       return (
-        <CartContext.Provider value={{ cart: { 1: {}, 2: {} } }}>
+        <CartContext.Provider
+          value={{
+            cart: { 1: {}, 2: {} },
+            addToCart: (id) => console.log(`Добавлен товар ${id} в корзину`),
+          }}
+        >
           <MemoryRouter initialEntries={["/catalog/boots"]}>
-            <Header />
+            <div
+              onClickCapture={(e) => {
+                const target = e.target;
+
+                if (target.tagName === "A" || target.closest("a")) {
+                  e.preventDefault();
+                  console.log("Навигация отключена");
+                  return false;
+                }
+              }}
+            >
+              <Header />
+            </div>
             <Routes>
               <Route path="/catalog/:category" element={<Story />} />
             </Routes>
-            <Footer />
+            <div
+              onClickCapture={(e) => {
+                const target = e.target;
+
+                if (target.tagName === "A" || target.closest("a")) {
+                  e.preventDefault();
+                  console.log("Навигация отключена");
+                  return false;
+                }
+              }}
+            >
+              <Footer />
+            </div>
           </MemoryRouter>
         </CartContext.Provider>
       );
@@ -107,13 +136,42 @@ export const FoodNoFilters = {
       };
 
       return (
-        <CartContext.Provider value={{ cart: { 1: {}, 2: {} } }}>
+        <CartContext.Provider
+          value={{
+            cart: { 1: {}, 2: {} },
+            addToCart: (id) => console.log(`Добавлен товар ${id} в корзину`),
+          }}
+        >
           <MemoryRouter initialEntries={["/catalog/food"]}>
-            <Header />
+            <div
+              onClickCapture={(e) => {
+                const target = e.target;
+
+                if (target.tagName === "A" || target.closest("a")) {
+                  e.preventDefault();
+                  console.log("Навигация отключена");
+                  return false;
+                }
+              }}
+            >
+              <Header />
+            </div>
             <Routes>
               <Route path="/catalog/:category" element={<Story />} />
             </Routes>
-            <Footer />
+            <div
+              onClickCapture={(e) => {
+                const target = e.target;
+
+                if (target.tagName === "A" || target.closest("a")) {
+                  e.preventDefault();
+                  console.log("Навигация отключена");
+                  return false;
+                }
+              }}
+            >
+              <Footer />
+            </div>
           </MemoryRouter>
         </CartContext.Provider>
       );
