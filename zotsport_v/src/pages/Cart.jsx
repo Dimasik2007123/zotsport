@@ -303,7 +303,7 @@ function Cart() {
       </div>
 
       <form
-        className="order-form"
+        className="form"
         method="POST"
         onSubmit={handleSubmit}
         noValidate

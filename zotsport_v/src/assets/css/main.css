@@ -450,7 +450,7 @@ body {
   width: 100%;
 }
 
-.order-form {
+.form {
   width: 100%;
   text-align: left;
 }
@@ -555,9 +555,9 @@ fieldset {
   text-align: left;
 }
 
-.order-form input[type="text"],
-.order-form input[type="number"],
-.order-form select {
+.form input[type="text"],
+.form input[type="number"],
+.form select {
   max-width: 100%;
   width: auto;
   min-width: 200px;
@@ -631,33 +631,33 @@ fieldset {
     max-width: 200px;
   }
 
-  .order-form input[type="text"],
-  .order-form input[type="number"],
-  .order-form select,
-  .order-form input[type="file"] {
+  .form input[type="text"],
+  .form input[type="number"],
+  .form select,
+  .form input[type="file"] {
     width: 100%;
     max-width: 100%;
     min-width: auto;
     box-sizing: border-box;
   }
 
-  .order-form input[type="file"] {
+  .form input[type="file"] {
     padding: 10px 0;
     font-size: 14px;
   }
 
-  .order-form p {
+  .form p {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
   }
 
-  .order-form p.radio-group {
+  .form p.radio-group {
     display: block;
   }
 
-  .order-form fieldset {
+  .form fieldset {
     padding: 10px;
     margin: 0;
   }

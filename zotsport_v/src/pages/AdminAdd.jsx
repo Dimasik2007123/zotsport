@@ -39,7 +39,7 @@ function AdminAdd() {
       <h1 style={{ textAlign: "center" }}>Добавление товара</h1>
       {message && <p>{message}</p>}
       <form
-        className="order-form"
+        className="form"
         encType="multipart/form-data"
         onSubmit={handleSubmit}
       >
