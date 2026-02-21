@@ -38,39 +38,40 @@ function AdminDel() {
     <main className="content">
       <h1 style={{ textAlign: "center" }}>Удаление товара</h1>
       {message && <p>{message}</p>}
+      <div className="cart">
+        <form
+          className="order-form"
+          encType="multipart/form-data"
+          onSubmit={handleSubmit}
+        >
+          <fieldset>
+            <legend>Данные товара</legend>
+            <p>
+              <label htmlFor="category">Категория товара </label>
+              <select name="category" id="cat" required>
+                <option value="Спортивное питание">Спортивное питание</option>
+                <option value="Мячи">Мячи</option>
+                <option value="Бутсы">Бутсы</option>
+                <option value="Футболки">Футболки</option>
+                <option value="Шорты">Шорты</option>
+              </select>
+            </p>
 
-      <form
-        className="order-form"
-        encType="multipart/form-data"
-        onSubmit={handleSubmit}
-      >
-        <fieldset>
-          <legend>Данные товара</legend>
-          <p>
-            <label htmlFor="category">Категория товара </label>
-            <select name="category" id="cat" required>
-              <option value="Спортивное питание">Спортивное питание</option>
-              <option value="Мячи">Мячи</option>
-              <option value="Бутсы">Бутсы</option>
-              <option value="Футболки">Футболки</option>
-              <option value="Шорты">Шорты</option>
-            </select>
-          </p>
-
-          <p>
-            <label htmlFor="name">Название товара </label>
-            <input
-              type="text"
-              id="name"
-              placeholder="Название"
-              name="name"
-              required
-            />
-          </p>
-        </fieldset>
-        <br />
-        <input type="submit" className="btn" value="Удалить товар" />
-      </form>
+            <p>
+              <label htmlFor="name">Название товара </label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Название"
+                name="name"
+                required
+              />
+            </p>
+          </fieldset>
+          <br />
+          <input type="submit" className="btn" value="Удалить товар" />
+        </form>
+      </div>
     </main>
   );
 }

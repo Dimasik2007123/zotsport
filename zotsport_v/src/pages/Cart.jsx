@@ -357,7 +357,7 @@ function Cart() {
             <span className="form__error" id="city-error"></span>
           </p>
 
-          <p>
+          <p className="radio-group">
             <label htmlFor="connect">Способ связи</label>
             <br />
             <input

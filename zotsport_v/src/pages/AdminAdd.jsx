@@ -84,7 +84,7 @@ function AdminAdd() {
               type="number"
               id="sale"
               placeholder="Скидка"
-              value={0}
+              defaultValue={0}
               name="sale"
               min="0"
               max="100"
