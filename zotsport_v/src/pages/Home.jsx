@@ -32,12 +32,12 @@ function Home() {
       <div className="ad">
         <div id="ad_1">
           <Link to="/catalog/balls">
-            <img src={sale1} alt="Реклама мячей" />
+            <img className="ad__image" src={sale1} alt="Реклама мячей" />
           </Link>
         </div>
         <div id="ad_2">
           <Link to="/catalog/boots">
-            <img src={sale2} alt="Реклама бутсов" />
+            <img className="ad__image" src={sale2} alt="Реклама бутсов" />
           </Link>
         </div>
       </div>

@@ -36,39 +36,40 @@ function AdminDel() {
 
   return (
     <main className="content">
-      <h1 style={{ textAlign: "center" }}>Удаление товара</h1>
+      <h1 className="content__title">Удаление товара</h1>
       {message && <p>{message}</p>}
       <form
         className="form"
         encType="multipart/form-data"
         onSubmit={handleSubmit}
       >
-        <fieldset>
+        <fieldset className="form__section">
           <legend>Данные товара</legend>
-          <p>
+          <div className="form__field">
             <label htmlFor="category">Категория товара </label>
-            <select name="category" id="cat" required>
+            <select className="form__select" name="category" id="cat" required>
               <option value="Спортивное питание">Спортивное питание</option>
               <option value="Мячи">Мячи</option>
               <option value="Бутсы">Бутсы</option>
               <option value="Футболки">Футболки</option>
               <option value="Шорты">Шорты</option>
             </select>
-          </p>
+          </div>
 
-          <p>
+          <div className="form__field">
             <label htmlFor="name">Название товара </label>
             <input
+              className="form__input"
               type="text"
               id="name"
               placeholder="Название"
               name="name"
               required
             />
-          </p>
+          </div>
         </fieldset>
         <br />
-        <input type="submit" className="btn" value="Удалить товар" />
+        <input type="submit" className="form__btn" value="Удалить товар" />
       </form>
     </main>
   );

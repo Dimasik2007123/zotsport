@@ -42,14 +42,15 @@ function AdminEnter() {
 
   return (
     <main className="content">
-      <div className="admin_block">
-        <h1 style={{ textAlign: "center" }}>Вход администратора</h1>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <form className="admin_form" onSubmit={handleSubmit}>
-          <fieldset>
-            <p>
+      <h1 className="content__title">Вход администратора</h1>
+      <div className="content__admin-block">
+        {error && <p className="content__error-message">{error}</p>}
+        <form className="form admin-form" onSubmit={handleSubmit}>
+          <fieldset className="form__section">
+            <div className="form__field">
               <label htmlFor="login">Логин </label>
               <input
+                className="form__input"
                 type="text"
                 id="login"
                 placeholder="Логин"
@@ -58,11 +59,12 @@ function AdminEnter() {
                 value={login}
                 onChange={(event) => setLogin(event.target.value)}
               />
-            </p>
+            </div>
 
-            <p>
+            <div className="form__field">
               <label htmlFor="password">Пароль </label>
               <input
+                className="form__input"
                 type="password"
                 id="pass"
                 placeholder="Пароль"
@@ -71,9 +73,13 @@ function AdminEnter() {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
-            </p>
+            </div>
           </fieldset>
-          <input type="submit" className="btn admin_btn" value="Войти!" />
+          <input
+            type="submit"
+            className="form__btn admin-form__btn"
+            value="Войти!"
+          />
         </form>
       </div>
     </main>

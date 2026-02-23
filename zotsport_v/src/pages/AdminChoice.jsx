@@ -16,12 +16,20 @@ function AdminChoice() {
 
   return (
     <main className="content">
-      <h1 style={{ textAlign: "center" }}>Панель администратора</h1>
-      <div className="admin_choice">
-        <Link to="/admin_add">Добавить товар</Link>
-        <Link to="/admin_red">Редактировать товар</Link>
-        <Link to="/admin_del">Удалить товар</Link>
-        <Link to="/admin_out">Выход</Link>
+      <h1 className="content__title">Панель администратора</h1>
+      <div className="admin-menu">
+        <Link className="admin-menu__link" to="/admin_add">
+          Добавить товар
+        </Link>
+        <Link className="admin-menu__link" to="/admin_red">
+          Редактировать товар
+        </Link>
+        <Link className="admin-menu__link" to="/admin_del">
+          Удалить товар
+        </Link>
+        <Link className="admin-menu__link" to="/admin_out">
+          Выход
+        </Link>
       </div>
     </main>
   );

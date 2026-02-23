@@ -63,8 +63,9 @@ function Catalog() {
     <main className="content">
       {mappedCategory === "Бутсы" ? (
         <div className="filters">
-          <div className="filter-option">
+          <div className="filters__option">
             <input
+              className="filters__option-input"
               type="radio"
               id="Все"
               name="brands"
@@ -72,11 +73,14 @@ function Catalog() {
               checked={selectedBrand === "Все"}
               onChange={() => handleBrandChange("Все")}
             />
-            <label htmlFor="Все">Все бренды</label>
+            <label className="filters__option-label" htmlFor="Все">
+              Все бренды
+            </label>
           </div>
 
-          <div className="filter-option">
+          <div className="filters__option">
             <input
+              className="filters__option-input"
               type="radio"
               id="Adidas"
               name="brands"
@@ -84,11 +88,14 @@ function Catalog() {
               checked={selectedBrand === "Adidas"}
               onChange={() => handleBrandChange("Adidas")}
             />
-            <label htmlFor="Adidas">Adidas</label>
+            <label className="filters__option-label" htmlFor="Adidas">
+              Adidas
+            </label>
           </div>
 
-          <div className="filter-option">
+          <div className="filters__option">
             <input
+              className="filters__option-input"
               type="radio"
               id="Nike"
               name="brands"
@@ -96,7 +103,9 @@ function Catalog() {
               checked={selectedBrand === "Nike"}
               onChange={() => handleBrandChange("Nike")}
             />
-            <label htmlFor="Nike">Nike</label>
+            <label className="filters__option-label" htmlFor="Nike">
+              Nike
+            </label>
           </div>
         </div>
       ) : null}

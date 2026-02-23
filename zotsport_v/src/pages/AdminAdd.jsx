@@ -36,51 +36,54 @@ function AdminAdd() {
 
   return (
     <main className="content">
-      <h1 style={{ textAlign: "center" }}>Добавление товара</h1>
+      <h1 className="content__title">Добавление товара</h1>
       {message && <p>{message}</p>}
       <form
         className="form"
         encType="multipart/form-data"
         onSubmit={handleSubmit}
       >
-        <fieldset>
+        <fieldset className="form__section">
           <legend>Данные товара</legend>
-          <p>
+          <div className="form__field">
             <label htmlFor="category">Категория товара </label>
-            <select name="category" id="cat" required>
+            <select className="form__select" name="category" id="cat" required>
               <option value="Спортивное питание">Спортивное питание</option>
               <option value="Мячи">Мячи</option>
               <option value="Бутсы">Бутсы</option>
               <option value="Футболки">Футболки</option>
               <option value="Шорты">Шорты</option>
             </select>
-          </p>
+          </div>
 
-          <p>
+          <div className="form__field">
             <label htmlFor="name">Название товара </label>
             <input
+              className="form__input"
               type="text"
               id="name"
               placeholder="Название"
               name="name"
               required
             />
-          </p>
+          </div>
 
-          <p>
+          <div className="form__field">
             <label htmlFor="old_price">Старая цена </label>
             <input
+              className="form__input"
               type="number"
               id="old_price"
               placeholder="Старая цена"
               name="old_price"
               required
             />
-          </p>
+          </div>
 
-          <p>
+          <div className="form__field">
             <label htmlFor="sale">Скидка (%) </label>
             <input
+              className="form__input"
               type="number"
               id="sale"
               placeholder="Скидка"
@@ -90,31 +93,44 @@ function AdminAdd() {
               max="100"
               required
             />
-          </p>
+          </div>
 
-          <p>
+          <div className="form__field">
             <label htmlFor="image">Фото товара </label>
             <input
+              className="form__input form__input--file"
               type="file"
               id="image"
               name="image"
               accept="image/png, image/jpeg, image/jpg"
               required
             />
-          </p>
+          </div>
 
-          <p>
+          <div className="form__field">
             <label htmlFor="brand">Бренд (необязательно) </label>
-            <input type="text" id="brand" placeholder="Бренд" name="brand" />
-          </p>
+            <input
+              className="form__input"
+              type="text"
+              id="brand"
+              placeholder="Бренд"
+              name="brand"
+            />
+          </div>
 
-          <p>
+          <div className="form__field form__field--checkbox">
             <label htmlFor="av">Наличие </label>
-            <input type="checkbox" id="av" name="av" defaultChecked />
-          </p>
+            <input
+              className="form__input form__input--checkbox"
+              type="checkbox"
+              id="av"
+              name="av"
+              defaultChecked
+            />
+          </div>
         </fieldset>
         <br />
-        <input type="submit" className="btn" value="Добавить товар" />
+        <input type="submit" className="form__btn" value="Добавить товар" />
       </form>
     </main>
   );

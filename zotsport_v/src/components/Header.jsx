@@ -10,41 +10,41 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="logo-container">
+      <div className="header__logo">
         <Link to="/">
-          <img src={logo} alt="ЗотСпорт" />
+          <img className="header__logo-image" src={logo} alt="ЗотСпорт" />
         </Link>
       </div>
 
-      <nav className="top">
-        <ul>
-          <li>
-            <Link to="/catalog/food" className="top_ref">
+      <nav className="header__nav">
+        <ul className="header__menu">
+          <li className="header__menu-item">
+            <Link to="/catalog/food" className="header__menu-link">
               Спортивное питание
             </Link>
           </li>
-          <li>
-            <Link to="/catalog/balls" className="top_ref">
+          <li className="header__menu-item">
+            <Link to="/catalog/balls" className="header__menu-link">
               Футбольные мячи
             </Link>
           </li>
-          <li>
-            <Link to="#" className="top_ref">
+          <li className="header__menu-item">
+            <Link to="#" className="header__menu-link">
               Одежда и обувь
             </Link>
-            <ul className="drop">
-              <li>
-                <Link to="/catalog/boots" className="top_ref">
+            <ul className="header__submenu">
+              <li className="header__submenu-item">
+                <Link to="/catalog/boots" className="header__submenu-link">
                   Бутсы
                 </Link>
               </li>
-              <li>
-                <Link to="/catalog/shirts" className="top_ref">
+              <li className="header__submenu-item">
+                <Link to="/catalog/shirts" className="header__submenu-link">
                   Футболки
                 </Link>
               </li>
-              <li>
-                <Link to="/catalog/shorts" className="top_ref">
+              <li className="header__submenu-item">
+                <Link to="/catalog/shorts" className="header__submenu-link">
                   Шорты
                 </Link>
               </li>
@@ -53,9 +53,9 @@ function Header() {
         </ul>
       </nav>
 
-      <div className="cart-icon">
-        <Link to="/cart">
-          <img src={cart_icon} alt="Корзина" className="cart-img" /> (
+      <div className="header__cart-icon">
+        <Link to="/cart" className="header__cart-link">
+          <img src={cart_icon} alt="Корзина" className="header__cart-img" /> (
           {cartCount})
         </Link>
       </div>

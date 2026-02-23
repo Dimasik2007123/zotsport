@@ -22,9 +22,10 @@ function Contacts() {
       </p>
       <h4>Адрес нашего склада</h4>
       <iframe
+        className="content__frame"
         title="Адрес склада"
         src="https://yandex.ru/map-widget/v1/?um=constructor%3A633c6126e32ccc3b519d5fa970b206f9812e5669a452a039c12e613d4887917e&amp;source=constructor"
-        width="80%"
+        width="100%"
         height="450px"
         frameborder="0"
       ></iframe>

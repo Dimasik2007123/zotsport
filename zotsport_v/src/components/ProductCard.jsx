@@ -13,14 +13,16 @@ function ProductCard({ product, onAdd }) {
 
   return (
     <li className="product">
-      <div className="product_block">
-        <div className="product_content">
+      <div className="product__card">
+        <div className="product__content">
           <img src={product.image} alt={product.name} />
           <p>{product.name}</p>
           {product.sale > 0 ? (
             <>
-              <p className="old">Старая цена: {product.old_price} руб.</p>
-              <p className="sale">
+              <p className="product__price--old">
+                Старая цена: {product.old_price} руб.
+              </p>
+              <p className="product__price--sale">
                 SALE {product.sale}% <br />
                 Новая цена: {product.price} руб.
               </p>
@@ -31,7 +33,7 @@ function ProductCard({ product, onAdd }) {
           <p>Артикул: {product.id}</p>
         </div>
         <button
-          className={`product_button ${isAnimating ? "product_button-active" : ""}`}
+          className={`product__button ${isAnimating ? "product__button--active" : ""}`}
           onClick={handleAddToCart}
           disabled={isAnimating}
         >
