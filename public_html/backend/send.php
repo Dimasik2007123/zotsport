@@ -17,14 +17,14 @@ $mes = "Тема: Заказ ЗотСпорт\nИмя: $name\nФамилия: $s
 
 $mail = new PHPMailer(True);
 $mail->isSMTP();
-$mail->Host = 'smtp.mail.ru'; 
+$mail->Host = 'smtp.yandex.ru'; 
 $mail->SMTPAuth = true;
-$mail->Username = 'vanya.sergeev.8787@mail.ru';
-$mail->Password = getenv('SMTP_PASSWORD');
+$mail->Username = 'zdima4444@yandex.ru';
+$mail->Password = 'nvsqckowhsfxikqw';
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 $mail->Port = 587;
 
-$mail->setFrom('vanya.sergeev.8787@mail.ru', 'ЗотСпорт');
+$mail->setFrom('zdima4444@yandex.ru', 'ЗотСпорт');
 $mail->addAddress('zdima4444@gmail.com');
 
 $mail->CharSet = 'UTF-8';
