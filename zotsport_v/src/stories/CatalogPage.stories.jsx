@@ -136,13 +136,13 @@ export const FoodNoFilters = {
       };
 
       return (
-        <CartContext.Provider
-          value={{
-            cart: { 1: {}, 2: {} },
-            addToCart: (id) => console.log(`Добавлен товар ${id} в корзину`),
-          }}
-        >
-          <MemoryRouter initialEntries={["/catalog/food"]}>
+        <MemoryRouter initialEntries={["/catalog/food"]}>
+          <CartContext.Provider
+            value={{
+              cart: { 1: {}, 2: {} },
+              addToCart: (id) => console.log(`Добавлен товар ${id} в корзину`),
+            }}
+          >
             <div
               onClickCapture={(e) => {
                 const target = e.target;
@@ -172,8 +172,8 @@ export const FoodNoFilters = {
             >
               <Footer />
             </div>
-          </MemoryRouter>
-        </CartContext.Provider>
+          </CartContext.Provider>
+        </MemoryRouter>
       );
     },
   ],
