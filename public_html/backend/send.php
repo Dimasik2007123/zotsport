@@ -1,5 +1,5 @@
 <?php
-$to = "zdima4444@gmail.com";
+$to = "vanya.sergeev.8787@mail.ru";
 $subject = "Тест почты с Timeweb";
 $message = "Это тестовое письмо с сервера Timeweb\nВремя: " . date('Y-m-d H:i:s');
 $headers = "From: zdima4444@yandex.ru\r\n";
