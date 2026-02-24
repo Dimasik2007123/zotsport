@@ -25,7 +25,7 @@ $email->setSubject("Заказ ЗотСпорт");
 $email->addTo("zdima4444@gmail.com", "Дмитрий");
 $email->addContent("text/plain", $mes);
 
-$sendgrid = new \SendGrid('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');
+$sendgrid = new \SendGrid('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');
 
 try {
     file_put_contents($log_file, date('Y-m-d H:i:s') . " - Отправка запроса...\n", FILE_APPEND);
