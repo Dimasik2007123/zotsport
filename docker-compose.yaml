@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   backend:
     image: ${DOCKER_USERNAME}/zotsport-backend1:latest
@@ -19,6 +19,7 @@ services:
         condition: service_completed_successfully
     environment:
       - SMTP_PASSWORD=jzaJsWZ26ZF5M8Q3HdYK
+      - SENDGRID_API_KEY=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
   frontend:
     image: ${DOCKER_USERNAME}/zotsport-frontend1:latest
     build:
