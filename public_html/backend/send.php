@@ -21,8 +21,8 @@ $mail->Host = 'smtp.yandex.ru';
 $mail->SMTPAuth = true;
 $mail->Username = 'zdima4444@yandex.ru';
 $mail->Password = 'nvsqckowhsfxikqw';
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-$mail->Port = 587;
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+$mail->Port = 465;
 
 $mail->setFrom('zdima4444@yandex.ru', 'ЗотСпорт');
 $mail->addAddress('zdima4444@gmail.com');
