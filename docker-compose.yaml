@@ -2,6 +2,13 @@ version: "3.8"
 services:
   backend:
     image: ${DOCKER_USERNAME}/zotsport-backend1:latest
+    user: root
+    command: >
+      sh -c "
+      chown -R www-data:www-data /var/www/html/db &&
+      chmod -R 777 /var/www/html/db &&
+      apache2-foreground
+      "
     build:
       context: .
       dockerfile: docker-backend/Dockerfile
