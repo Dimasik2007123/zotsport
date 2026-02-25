@@ -62,7 +62,7 @@ $mail->isSMTP();
 $mail->Host = 'smtp.yandex.ru'; 
 $mail->SMTPAuth = true;
 $mail->Username = 'zdima4444@yandex.ru';
-$mail->Password = 'nvsqckowhsfxikqw';
+$mail->Password = getenv('SMTP_PASSWORD');
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mail->Port = 465;
 
