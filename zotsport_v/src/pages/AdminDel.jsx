@@ -1,10 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 function AdminDel() {
   const [message, setMessage] = useState("");
+  const [products, setProducts] = useState([]);
+  const { deleteFromCart } = useContext(CartContext);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch("/backend/start.php")
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Ошибка загрузки товаров:", error));
+  }, []);
 
   useEffect(() => {
     document.title = "ЗотСпорт. Удаление товара";
@@ -20,6 +30,7 @@ function AdminDel() {
     event.preventDefault();
 
     const formData = new FormData(event.target);
+    const productName = formData.get("name");
     const response = await fetch("/backend/del.php", {
       method: "POST",
       body: formData,
@@ -29,6 +40,10 @@ function AdminDel() {
     if (ans.success) {
       setMessage("Товар удален");
       event.target.reset();
+      const product = products.find((p) => p.name === productName);
+      if (product) {
+        deleteFromCart(product.id);
+      }
     } else {
       setMessage("Ошибка при удалении товара");
     }
