@@ -20,7 +20,7 @@ services:
       sqlite:
         condition: service_completed_successfully
     environment:
-      - SMTP_PASSWORD=jzaJsWZ26ZF5M8Q3HdYK
+      - SMTP_PASSWORD=nvsqckowhsfxikqw
   frontend:
     image: ${DOCKER_USERNAME}/zotsport-frontend1:latest
     build:
