@@ -444,7 +444,6 @@ body {
 }
 
 .footer {
-  flex-shrink: 0;
   background: #87ceeb;
   font-family: arial;
   padding: 5px 5%;
