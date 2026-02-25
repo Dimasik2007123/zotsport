@@ -7,8 +7,9 @@ RUN apt-get update && apt-get install -y \
     git \
     && docker-php-ext-install pdo_sqlite \
     && rm -rf /var/lib/apt/lists/*
+RUN docker-php-ext-install curl || true
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && chmod +x /usr/local/bin/composer
-RUN composer require phpmailer/phpmailer sendgrid/sendgrid -W --no-interaction --working-dir=/var/www/html
+RUN composer require phpmailer/phpmailer symfony/mime railsware/mailtrap-php nyholm/psr7 php-http/discovery -W --no-interaction --working-dir=/var/www/html
 RUN mkdir -p /var/www/html/db /var/www/html/backend
 COPY public_html/backend /var/www/html
 RUN chown -R www-data:www-data /var/www/html \
