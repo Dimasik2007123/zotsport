@@ -60,15 +60,14 @@ export default {
   decorators: [
     (Story) => {
       const originalFetch = window.fetch;
-      window.fetch = async (input) => {
-        const url = typeof input === "string" ? input : input.url;
-        if (url?.includes("/backend/start.php")) {
+      window.fetch = async (url) => {
+        if (url.includes("/backend/start.php")) {
           return {
             ok: true,
             json: async () => mockBootsProducts,
           };
         }
-        return originalFetch(input);
+        return originalFetch(url);
       };
 
       return (
@@ -98,15 +97,14 @@ export const FoodNoFilters = {
   decorators: [
     (Story) => {
       const originalFetch = window.fetch;
-      window.fetch = async (input) => {
-        const url = typeof input === "string" ? input : input.url;
-        if (url?.includes("/backend/start.php")) {
+      window.fetch = async (url) => {
+        if (url.includes("/backend/start.php")) {
           return {
             ok: true,
             json: async () => mockFoodProducts,
           };
         }
-        return originalFetch(input);
+        return originalFetch(url);
       };
 
       return (

@@ -112,8 +112,6 @@ body {
   margin: 0;
   padding: 0;
   overflow: visible;
-  font-family: "PT Sans", sans-serif;
-  text-align: center;
 }
 
 .header__menu-item {
@@ -124,7 +122,7 @@ body {
   z-index: 10000;
   list-style: none;
   background: transparent;
-  color: black;
+  color: #474747;
   text-decoration: none;
   border: none;
   border-radius: 30px;
@@ -467,15 +465,20 @@ body {
 }
 
 .footer__link {
-  font-family: arial;
-  font-size: clamp(14px, 1vw + 0.5rem, 20px);
+  font-family: "PT Sans", sans-serif;
+  font-size: clamp(11px, 0.5vw + 0.5rem, 16px);
+  text-transform: uppercase;
   text-decoration: none;
   color: #474747;
   white-space: nowrap;
+  transition:
+    transform 0.3s ease,
+    color 0.5s ease-in-out;
 }
 
 .footer__link:hover {
-  text-decoration: underline;
+  transform: scale(1.05);
+  color: grey;
 }
 
 .cart {
@@ -676,11 +679,15 @@ body {
     line-height: 15px;
     text-align: center;
     width: 100%;
+    padding-top: 10px;
+    margin-top: -10px;
+    padding-bottom: 10px;
+    margin-bottom: -10px;
   }
 
   .header__submenu {
     height: auto;
-    top: 24px;
+    top: 32px;
     left: 50%;
     transform: translateX(-50%);
   }

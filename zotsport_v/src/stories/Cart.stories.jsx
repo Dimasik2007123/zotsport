@@ -59,6 +59,7 @@ export default {
             value={{
               cart: mockFullCart,
               deleteFromCart: (id) => alert(`Удалён товар ${id}`),
+              clearCart: () => {},
             }}
           >
             <Story />

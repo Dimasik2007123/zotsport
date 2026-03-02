@@ -3,7 +3,7 @@ import { useEffect } from "react";
 function Delivery() {
   useEffect(() => {
     document.title = "ЗотСпорт. Доставка и оплата";
-  });
+  }, []);
 
   return (
     <main className="content">

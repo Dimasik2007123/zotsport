@@ -8,7 +8,7 @@ function AdminAdd() {
 
   useEffect(() => {
     document.title = "ЗотСпорт. Добавление товара";
-  });
+  }, []);
 
   useEffect(() => {
     if (localStorage.getItem("adm") !== "1") {

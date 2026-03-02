@@ -8,7 +8,7 @@ function AdminRed() {
 
   useEffect(() => {
     document.title = "ЗотСпорт. Редактирование товаров";
-  });
+  }, []);
 
   useEffect(() => {
     if (localStorage.getItem("adm") !== "1") {

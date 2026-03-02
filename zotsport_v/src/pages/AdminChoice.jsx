@@ -6,7 +6,7 @@ function AdminChoice() {
 
   useEffect(() => {
     document.title = "ЗотСпорт. Панель администратора";
-  });
+  }, []);
 
   useEffect(() => {
     if (localStorage.getItem("adm") !== "1") {

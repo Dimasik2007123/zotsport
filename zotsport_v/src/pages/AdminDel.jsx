@@ -10,15 +10,15 @@ function AdminDel() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = "ЗотСпорт. Удаление товара";
+  }, []);
+
+  useEffect(() => {
     fetch("/backend/start.php")
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Ошибка загрузки товаров:", error));
   }, []);
-
-  useEffect(() => {
-    document.title = "ЗотСпорт. Удаление товара";
-  });
 
   useEffect(() => {
     if (localStorage.getItem("adm") !== "1") {

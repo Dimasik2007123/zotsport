@@ -65,25 +65,24 @@ export const BootsWithFilters = {
   decorators: [
     (Story) => {
       const originalFetch = window.fetch;
-      window.fetch = async (input) => {
-        const url = typeof input === "string" ? input : input.url;
-        if (url?.includes("/backend/start.php")) {
+      window.fetch = async (url) => {
+        if (url.includes("/backend/start.php")) {
           return {
             ok: true,
             json: async () => mockBootsProducts,
           };
         }
-        return originalFetch(input);
+        return originalFetch(url);
       };
 
       return (
-        <CartContext.Provider
-          value={{
-            cart: { 1: {}, 2: {} },
-            addToCart: (id) => console.log(`Добавлен товар ${id} в корзину`),
-          }}
-        >
-          <MemoryRouter initialEntries={["/catalog/boots"]}>
+        <MemoryRouter initialEntries={["/catalog/boots"]}>
+          <CartContext.Provider
+            value={{
+              cart: { 1: {}, 2: {} },
+              addToCart: (id) => console.log(`Добавлен товар ${id} в корзину`),
+            }}
+          >
             <div
               onClickCapture={(e) => {
                 const target = e.target;
@@ -113,8 +112,8 @@ export const BootsWithFilters = {
             >
               <Footer />
             </div>
-          </MemoryRouter>
-        </CartContext.Provider>
+          </CartContext.Provider>
+        </MemoryRouter>
       );
     },
   ],
@@ -124,15 +123,14 @@ export const FoodNoFilters = {
   decorators: [
     (Story) => {
       const originalFetch = window.fetch;
-      window.fetch = async (input) => {
-        const url = typeof input === "string" ? input : input.url;
-        if (url?.includes("/backend/start.php")) {
+      window.fetch = async (url) => {
+        if (url.includes("/backend/start.php")) {
           return {
             ok: true,
             json: async () => mockFoodProducts,
           };
         }
-        return originalFetch(input);
+        return originalFetch(url);
       };
 
       return (

@@ -22,6 +22,10 @@ function Cart() {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = "ЗотСпорт. Корзина";
+  }, []);
+
   const showInputError = (formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     if (errorElement) {
@@ -237,10 +241,6 @@ function Cart() {
       localStorage.setItem("connect", connect);
     }, [name, surname, city, phone, mail, connect]),
   );
-
-  useEffect(() => {
-    document.title = "ЗотСпорт. Корзина";
-  });
 
   if (isSubmitted) {
     return (

@@ -12,7 +12,7 @@ function AdminEnter() {
 
   useEffect(() => {
     document.title = "ЗотСпорт. Вход администратора";
-  });
+  }, []);
 
   useEffect(() => {
     const isAdmin = localStorage.getItem("adm") === "1";
