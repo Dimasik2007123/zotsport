@@ -25,6 +25,7 @@
 - React Router v.7.12.0
 - Vite v.7.2.4
 - Docker + Docker Compose
+- Storybook
 
 ## Опубликованная версия
 
