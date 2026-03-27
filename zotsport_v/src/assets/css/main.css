@@ -533,6 +533,13 @@ body {
   margin-left: 0;
 }
 
+.form__field--radio-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+}
+
 .form__btn {
   height: auto;
   background-color: lightblue;
@@ -742,6 +749,7 @@ body {
   .form__input,
   .form__select,
   .form__input--file {
+    display: block;
     width: 100%;
     max-width: 100%;
     min-width: auto;
@@ -751,6 +759,8 @@ body {
   .form__input--file {
     padding: 10px 0;
     font-size: 14px;
+    text-align: center;
+    text-align-last: center;
   }
 
   .form__input--radio {

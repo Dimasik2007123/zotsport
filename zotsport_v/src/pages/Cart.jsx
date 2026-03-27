@@ -384,28 +384,31 @@ function Cart() {
           <div className="form__field form__field--radio">
             <label htmlFor="connect">Способ связи</label>
             <br />
-            <input
-              className="form__input form__input--radio"
-              type="radio"
-              name="connect"
-              id="p1"
-              value="Телефон"
-              checked={connect === "Телефон"}
-              onChange={(e) => handleConnectChange(e.target.value)}
-            />
-            Телефон
+            <span className="form__field--radio-wrapper">
+              <input
+                className="form__input form__input--radio"
+                type="radio"
+                name="connect"
+                id="p1"
+                value="Телефон"
+                checked={connect === "Телефон"}
+                onChange={(e) => handleConnectChange(e.target.value)}
+              />
+              Телефон
+            </span>
             <br />
-            <input
-              className="form__input form__input--radio"
-              type="radio"
-              name="connect"
-              id="p2"
-              value="Почта"
-              checked={connect === "Почта"}
-              onChange={(e) => handleConnectChange(e.target.value)}
-            />
-            Электронная почта
-            <br />
+            <span className="form__field--radio-wrapper">
+              <input
+                className="form__input form__input--radio"
+                type="radio"
+                name="connect"
+                id="p2"
+                value="Почта"
+                checked={connect === "Почта"}
+                onChange={(e) => handleConnectChange(e.target.value)}
+              />
+              Электронная почта
+            </span>
             <span className="form__error" id="connect-error"></span>
           </div>
 
