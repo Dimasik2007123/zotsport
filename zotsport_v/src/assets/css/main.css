@@ -767,19 +767,31 @@ body {
   .form__field {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 5px;
   }
 
   .form__field--checkbox {
     min-width: auto;
-    width: 80px;
-    flex-direction: row;
-    justify-content: flex-start;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .form__field--radio {
     display: block;
+    align-items: center;
+  }
+
+  .form__field--radio br:first-of-type {
+    display: none;
+  }
+
+  .form__field--radio > label {
+    text-align: center;
+    display: block;
+    margin-bottom: 0;
   }
 
   .form__section {
