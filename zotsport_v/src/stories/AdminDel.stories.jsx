@@ -1,5 +1,6 @@
 import AdminDel from "../pages/AdminDel";
 import { MemoryRouter } from "react-router-dom";
+import { CartProvider } from "../context/CartContext";
 
 export default {
   title: "Admin/AdminDel",
@@ -8,7 +9,9 @@ export default {
     // eslint-disable-next-line no-unused-vars
     (Story) => (
       <MemoryRouter>
-        <Story />
+        <CartProvider>
+          <Story />
+        </CartProvider>
       </MemoryRouter>
     ),
   ],
