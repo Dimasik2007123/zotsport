@@ -791,7 +791,6 @@ body {
 
   .form__field--radio {
     display: block;
-    align-items: center;
   }
 
   .form__field--radio br:first-of-type {
